@@ -3,14 +3,20 @@
 
     <item android:id="@+id/home"
         android:title="Home"
-        android:icon="@drawable/baseline_home_24"/>
+        android:icon="@drawable/baseline_home_24"
+        android:iconTint="@color/Goldern_Ochre" />
     <item android:id="@+id/search"
         android:title="Search"
-        android:icon="@drawable/baseline_search_24"/>
+        android:icon="@drawable/baseline_search_24"
+        android:iconTint="@color/Goldern_Ochre"/>
     <item android:id="@+id/save"
         android:title="Save"
-        android:icon="@drawable/baseline_bookmark_24"/>
+        android:icon="@drawable/baseline_bookmark_24"
+        android:iconTint="@color/Goldern_Ochre"/>
+
     <item android:id="@+id/profile"
         android:title="Profile"
-        android:icon="@drawable/round_person_24"/>
+        android:icon="@drawable/round_person_24"
+        android:iconTint="@color/Goldern_Ochre"/>
+
 </menu>
