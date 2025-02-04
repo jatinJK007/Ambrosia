@@ -12,6 +12,8 @@
         android:id="@+id/rvImg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:src="@drawable/ic_launcher_background"
+        android:scaleType="centerCrop"
         android:layout_margin="5dp"/>
 
 

@@ -1,12 +1,11 @@
 package com.example.ambrosia
 
-import com.example.ambrosia.Models.Category
-import retrofit2.Response
+import com.example.ambrosia.Models.dcCat
 import retrofit2.http.GET
 
 interface ApiInterface {
 
-    @GET("1/categories.php")
-    fun getCategory():Response<Category>
+    @GET("categories.php")
+    suspend fun getCategory(): dcCat
 
 }

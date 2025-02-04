@@ -1,5 +1,6 @@
 package com.example.ambrosia.Adaptors
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,11 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ambrosia.Models.Category
 import com.example.ambrosia.R
 import com.squareup.picasso.Picasso
-import retrofit2.Response
 
 
-class catAdap(val context: Fragment, val catlist: ArrayList<Category>) :
+class catAdap(val context: Fragment, var catlist: List<Category>) :
     RecyclerView.Adapter<catAdap.MyViewHolder>(){
+
+
     lateinit var onItemClick: ((Category) -> Unit)
 
 
@@ -29,11 +31,18 @@ class catAdap(val context: Fragment, val catlist: ArrayList<Category>) :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem =catlist[position]
-        Picasso.get().load(currentItem.strCategoryThumb).into(holder.img)
+
+        Log.d("TAG", "onBindViewHolder: item displayed succesfully")
+        Picasso.get()
+            .load(currentItem.strCategoryThumb)
+            .into(holder.img)
+        Log.d("TAG", "onBindViewHolder: item displayed after picasso")
+
 
         holder.itemView.setOnClickListener {
-            onItemClick?.invoke(currentItem)
+            onItemClick.invoke(currentItem)
         }
+
 
     }
     class MyViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
