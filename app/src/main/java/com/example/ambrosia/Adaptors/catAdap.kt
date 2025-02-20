@@ -42,8 +42,6 @@ class catAdap(val context: Fragment, var catlist: List<Category>) :
         holder.itemView.setOnClickListener {
             onItemClick.invoke(currentItem)
         }
-
-
     }
     class MyViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
         val img :ImageView
@@ -51,5 +49,4 @@ class catAdap(val context: Fragment, var catlist: List<Category>) :
             img = itemView.findViewById(R.id.rvImg)
         }
     }
-
 }

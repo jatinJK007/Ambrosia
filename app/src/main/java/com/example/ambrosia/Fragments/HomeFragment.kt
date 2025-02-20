@@ -1,5 +1,6 @@
 package com.example.ambrosia.Fragments
 
+import android.content.Intent
 import retrofit2.HttpException
 import android.os.Bundle
 import android.util.Log
@@ -11,18 +12,15 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ambrosia.Adaptors.catAdap
-import com.example.ambrosia.Models.dcCat
+import com.example.ambrosia.DetailedActivity
+import com.example.ambrosia.Models.Category
 import com.example.ambrosia.RetroInstance
 import com.example.ambrosia.databinding.FragmentHomeBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.io.IOException
 
 
@@ -59,6 +57,12 @@ class HomeFragment : Fragment() {
         if (!isDataLoaded){
             Log.d("homefragment", "onViewCreated: fetchcategories called sucessfully")
             fetchCategories()
+
+//            implemented the on click functionality after clicking on each item on main fragment it will redirect to detailed activity
+            myAdapter.onItemClick = { Category ->
+                val intent = Intent(activity, DetailedActivity::class.java)
+                activity?.startActivity(intent)
+            }
         }
     }
 
@@ -90,49 +94,18 @@ class HomeFragment : Fragment() {
                 if (response.categories.isNotEmpty()) {
                     Log.d("HomeFragment", "Category list size: ${response.categories.size}")
                     myAdapter.catlist = response.categories
-                    Log.d("HomeFragment", "after cat;ist called line 2")
-                    myAdapter.notifyDataSetChanged()
-                    Log.d("HomeFragment", "after notifydtasetchange")
+                    myAdapter.notifyDataSetChanged() // Notifying the adapter about dataset change
                     myAdapter.onItemClick = { category ->
-                        // Handle item click here
                         Log.d("HomeFragment", "Clicked on category: ${category.strCategory}")
                     }
                 } else {
                     Log.w("HomeFragment", "Category list is empty")
-                    Toast.makeText(requireContext(), "No Categories Found", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "No Categories Found", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
         }
     }
-
-
-//        Log.d("TAG", "onViewCreated: succesfully and item displayed in fragment")
-//        GlobalScope.launch(Dispatchers.IO){
-//            val response = try{
-//                RetroInstance.api.getCategory()
-//            }catch (e: HttpException) {
-//                Log.e("TAG", "Http Error: ${e.message}", e)
-//                return@launch
-//            } catch (e: IOException) {
-//                Log.e("TAG", "I/O Error: ${e.message}", e)
-//                return@launch
-//            } catch (e: Exception) {
-//                Log.e("TAG", "Generic Error: ${e.message}", e)
-//                return@launch
-//            }
-//            withContext(Dispatchers.Main) {
-//                if (response != null) {
-//                    Log.d("TAG", "onViewCreated: dispatcher main")
-//
-//                    myAdapter = catAdap(this@HomeFragment, response.categories)
-//                    rv.adapter = myAdapter
-//                    rv.layoutManager = LinearLayoutManager(requireContext())
-//                }
-//            }
-//        }
-//    }
-
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

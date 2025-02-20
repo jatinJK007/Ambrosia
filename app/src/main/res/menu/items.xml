@@ -6,7 +6,7 @@
         android:icon="@drawable/baseline_home_24"
         android:iconTint="@color/Goldern_Ochre" />
     <item android:id="@+id/search"
-        android:title="Search"
+        android:title="Search +"
         android:icon="@drawable/baseline_search_24"
         android:iconTint="@color/Goldern_Ochre"/>
     <item android:id="@+id/save"
