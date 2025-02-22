@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ambrosia.Adaptors.catAdap
 import com.example.ambrosia.DetailedActivity
-import com.example.ambrosia.Models.Category
 import com.example.ambrosia.RetroInstance
 import com.example.ambrosia.databinding.FragmentHomeBinding
 import kotlinx.coroutines.CoroutineScope
@@ -59,10 +58,7 @@ class HomeFragment : Fragment() {
             fetchCategories()
 
 //            implemented the on click functionality after clicking on each item on main fragment it will redirect to detailed activity
-            myAdapter.onItemClick = { Category ->
-                val intent = Intent(activity, DetailedActivity::class.java)
-                activity?.startActivity(intent)
-            }
+//
         }
     }
 
@@ -95,8 +91,16 @@ class HomeFragment : Fragment() {
                     Log.d("HomeFragment", "Category list size: ${response.categories.size}")
                     myAdapter.catlist = response.categories
                     myAdapter.notifyDataSetChanged() // Notifying the adapter about dataset change
+
+//                    setting on clicklistner on item
                     myAdapter.onItemClick = { category ->
                         Log.d("HomeFragment", "Clicked on category: ${category.strCategory}")
+                        val intent = Intent(requireContext(), DetailedActivity::class.java).apply {
+                            putExtra("IMAGE_URL", category.strCategoryThumb)
+                            putExtra("TITLE", category.strCategory)
+                            putExtra("DESCRIPTION", category.strCategoryDescription)
+                        }
+                        startActivity(intent)
                     }
                 } else {
                     Log.w("HomeFragment", "Category list is empty")

@@ -2,4 +2,6 @@
     <string name="app_name">Ambrosia</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment"</string>
+    <string name="copy_title">Copy title to clipboard</string>
+    <string name="copy_description">Copy description to clipboard</string>
 </resources>

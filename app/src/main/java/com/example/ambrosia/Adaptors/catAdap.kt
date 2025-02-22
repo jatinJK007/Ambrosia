@@ -38,8 +38,9 @@ class catAdap(val context: Fragment, var catlist: List<Category>) :
             .into(holder.img)
         Log.d("TAG", "onBindViewHolder: item displayed after picasso")
 
-
+//        implementing item click listner
         holder.itemView.setOnClickListener {
+            Log.d("ADAPTER", "Item clicked at position $position")
             onItemClick.invoke(currentItem)
         }
     }
