@@ -3,12 +3,14 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
 }
 
+
 android {
     namespace = "com.example.ambrosia"
     compileSdk = 35
 
     buildFeatures{
         viewBinding = true
+        buildConfig = true
     }
 
     defaultConfig {
@@ -17,8 +19,8 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -50,8 +52,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     //retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
 //  room database include
     val room_version = "2.6.1"
@@ -68,4 +70,20 @@ dependencies {
 
 //    coroutines dependency
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+//    Room for local storage
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
+    implementation("androidx.room:room-ktx:2.6.1")
+
+// LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+
+
+//    viewmodel dependency
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+
+
 }

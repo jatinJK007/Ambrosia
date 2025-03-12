@@ -16,6 +16,7 @@ class DetailedActivity : AppCompatActivity() {
     private lateinit var binding : ActivityDetailedBinding
     private lateinit var clipboard: ClipboardManager
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,6 +28,13 @@ class DetailedActivity : AppCompatActivity() {
         val imageUrl = intent.getStringExtra("IMAGE_URL") ?: ""
         val title = intent.getStringExtra("TITLE") ?: "No Title"
         val description = intent.getStringExtra("DESCRIPTION") ?: "No Description Available"
+
+
+        binding.saveIconHollow.setOnClickListener {
+            binding.saveIconHollow.visibility = View.INVISIBLE
+            binding.saveIconFilled.visibility = View.VISIBLE
+//            binding.saveIconHollow.display
+        }
 
         // Load data into views
         loadImage(imageUrl)
