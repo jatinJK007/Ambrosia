@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.example.ambrosia.SearchViewModel
+import com.example.ambrosia.ViewModels.SearchViewModel
 import com.example.ambrosia.databinding.FragmentSearchBinding
 
 class SearchFragment : Fragment() {

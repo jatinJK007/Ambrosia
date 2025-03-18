@@ -1,8 +1,9 @@
-package com.example.ambrosia
+package com.example.ambrosia.ViewModels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.ambrosia.Repository.OpenAIRepository
 import kotlinx.coroutines.launch
 
 class SearchViewModel : ViewModel() {

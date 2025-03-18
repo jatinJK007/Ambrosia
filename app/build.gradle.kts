@@ -60,6 +60,7 @@ dependencies {
 
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:2.6.1")
 
 //    gson
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
@@ -71,9 +72,6 @@ dependencies {
 //    coroutines dependency
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
 //    Room for local storage
-    implementation("androidx.room:room-runtime:2.6.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
-    implementation("androidx.room:room-ktx:2.6.1")
 
 // LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
@@ -85,5 +83,7 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
 
+// Coil (for image loading)
+    implementation("io.coil-kt:coil:2.5.0")
 
 }

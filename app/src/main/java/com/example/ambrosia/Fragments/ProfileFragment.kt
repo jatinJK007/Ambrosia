@@ -1,7 +1,6 @@
 package com.example.ambrosia.Fragments
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
@@ -24,7 +23,7 @@ class ProfileFragment : Fragment() {
             try{
 //                set image to imageview
                 binding.profileImg.setImageURI(uri)
-//                save image to interna storage
+//                save image to internal storage
                 val inputStream = requireContext().contentResolver.openInputStream(uri)
                 val bitmap= BitmapFactory.decodeStream(inputStream)
                 inputStream?.close()

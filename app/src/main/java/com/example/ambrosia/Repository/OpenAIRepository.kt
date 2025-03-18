@@ -1,7 +1,8 @@
-package com.example.ambrosia
+package com.example.ambrosia.Repository
 
 import android.util.Log
 import com.example.ambrosia.Models.GeminiRequest
+import com.example.ambrosia.Utils.RetroInstance
 
 class OpenAIRepository {
     private val apiService = RetroInstance.geminiInstance

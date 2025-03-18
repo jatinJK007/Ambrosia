@@ -1,6 +1,5 @@
 package com.example.ambrosia.Models
 
-import androidx.versionedparcelable.VersionedParcelize
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
